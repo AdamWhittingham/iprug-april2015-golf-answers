@@ -9,10 +9,12 @@ class Golf
   end
 
   def hole_2 s
+    h={}
+    a='aeiou'
     s.split
-     .each_with_object({}){|w,h|h[w]=[w.gsub(/[aeiou]/i,'').length,w.gsub(/[^(aeiou)]/i,'').length]}
-     .sort_by{|k,(v,w)|[v,w,k.upcase]}
-     .flat_map{|a|a.first}
+     .map{|w|h[w]=[w.gsub(/[#{a}]/i,'').size,w.gsub(/[^(#{a})]/i,'').size]}
+    h.sort_by{|k,(v,w)|[v,w,k.upcase]}
+     .map{|a|a.first}
      .join' '
   end
 
