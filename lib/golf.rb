@@ -23,7 +23,7 @@ class Golf
   end
 
   def hole_3 i
-    (1..i).select{|a|(i/a.to_f)%1==0}
+    (1..i).select{|a|i%a==0}
   end
 
   def hole_4
