@@ -35,7 +35,10 @@ class Golf
     [w,v].map{|a|a.upcase.gsub(/[^A-Z]/,'').chars.sort}.inject(:==)
   end
 
-  def hole_6
+  def hole_6 n
+    a='Happy birthday '
+    b=a+'to you'
+    [b,b,a+'dear '+n,b].join("\n")
   end
 
   def hole_7
