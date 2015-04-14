@@ -17,7 +17,7 @@ class Golf
         w.tr(a,'').size,
         w.tr('^'+a,'').size
       ]}
-    h.sort_by{|k,(v,w)|[v,w,k.upcase]}
+    h.sort_by{|k,v|[v,k.upcase]}
      .map{|b|b.first}
      .join' '
   end
@@ -41,7 +41,8 @@ class Golf
     [b,b,a+'dear '+n,b].join("\n")
   end
 
-  def hole_7
+  def hole_7 m,n
+    m.upcase.tr('^A-Z','').bytes.map{|a|65+((a+n-65)%26)}.each_slice(5).map{|a| a <<32}.flatten.pack('c*').strip
   end
 
   def hole_8
