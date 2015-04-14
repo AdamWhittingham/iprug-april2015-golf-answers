@@ -31,7 +31,8 @@ class Golf
     a+"\n"+(("|"+(" "*x)+"|\n")*y)+a
   end
 
-  def hole_5
+  def hole_5 w,v
+    [w,v].map{|a|a.upcase.chars.sort.join.gsub(/[^A-Z]/,'')}.inject(:==)
   end
 
   def hole_6
