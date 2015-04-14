@@ -12,13 +12,18 @@ class Golf
     h={}
     a='aeiou'
     s.split
-     .map{|w|h[w]=[w.gsub(/[#{a}]/i,'').size,w.gsub(/[^(#{a})]/i,'').size]}
+     .map{|w|
+      h[w]=[
+        w.gsub(/[#{a}]/i,'').size,
+        w.gsub(/[^(#{a})]/i,'').size
+      ]}
     h.sort_by{|k,(v,w)|[v,w,k.upcase]}
      .map{|a|a.first}
      .join' '
   end
 
-  def hole_3
+  def hole_3 i
+    (1..i).select{|a|(i/a.to_f)%1==0}
   end
 
   def hole_4
