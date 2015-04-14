@@ -32,7 +32,7 @@ class Golf
   end
 
   def hole_5 w,v
-    [w,v].map{|a|a.upcase.chars.sort.join.gsub(/[^A-Z]/,'')}.inject(:==)
+    [w,v].map{|a|a.upcase.gsub(/[^A-Z]/,'').chars.sort}.inject(:==)
   end
 
   def hole_6
