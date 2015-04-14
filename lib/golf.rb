@@ -10,12 +10,12 @@ class Golf
 
   def hole_2 s
     h={}
-    a='aeiou'
+    a='aeiouAEIOU'
     s.split
      .map{|w|
       h[w]=[
-        w.gsub(/[#{a}]/i,'').size,
-        w.gsub(/[^(#{a})]/i,'').size
+        w.tr(a,'').size,
+        w.tr('^'+a,'').size
       ]}
     h.sort_by{|k,(v,w)|[v,w,k.upcase]}
      .map{|b|b.first}
